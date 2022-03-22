@@ -1,12 +1,16 @@
 import React from "react";
+import { useParams } from "react-router-dom"
 import { AiFillStar } from "react-icons/ai";
 
 
 const Review = props => {
 
+  const url_value = useParams();
+  // console.log(url_value.day)
+
   return (
     <div>
-      <h2>무슨요일</h2>
+      <h2>{url_value.day}요일</h2>
       <div>
         {Array.from({length:5}, (item,index)=>{
           return (

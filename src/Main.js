@@ -14,7 +14,6 @@ const Main = props => {
 
   const history = useHistory();
 
-  console.log(day_list[0])
 
   // 궁금증 테스트 console.log 값
   // console.log(typeof day_list);
