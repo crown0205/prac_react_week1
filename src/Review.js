@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+import { useParams , useHistory } from "react-router-dom"
 import { AiFillStar } from "react-icons/ai";
 
 
 const Review = props => {
-
+  const history = useHistory();
   const url_value = useParams();
+  // console.log(history)
   // console.log(url_value.day)
 
   return (
@@ -18,7 +19,9 @@ const Review = props => {
           )
         })}
       </div>
-      <button style={{padding:"8px 5px", marginTop:"30px"}}>평점 남기기</button>
+      <button style={{padding:"8px 5px", marginTop:"30px"}} onClick={()=>{
+        history.push('/')
+      }}>평점 남기기</button>
     </div>
 
   )
