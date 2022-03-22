@@ -10,7 +10,7 @@ const Review = props => {
       <div>
         {Array.from({length:5}, (item,index)=>{
           return (
-            <AiFillStar style={{fontSize:"36px", marginRight:"20px", color:"gray"}}/>
+            <AiFillStar key={index} style={{fontSize:"36px", marginRight:"20px", color:"gray"}}/>
           )
         })}
       </div>

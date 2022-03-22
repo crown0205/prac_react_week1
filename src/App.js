@@ -9,7 +9,7 @@ function App() {
       <Route path="/" exact>
         <Main />
       </Route>
-      <Route path="/review" exact >
+      <Route path="/review/:day" exact >
         <Review />
       </Route>
     </div>

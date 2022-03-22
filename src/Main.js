@@ -1,15 +1,20 @@
 import React from "react";
 import { AiFillCaretRight, AiFillStar } from "react-icons/ai";
-import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+// import styled from "styled-components";
 
 const Main = props => {
   const day_list = ["일", "월", "화", "수", "목", "금", "토"];
-  const wrap_style = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    aligItems: "center",
-  };
+  // const wrap_style = {
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "center",
+  //   aligItems: "center",
+  // };
+
+  const history = useHistory();
+
+  console.log(day_list[0])
 
   // 궁금증 테스트 console.log 값
   // console.log(typeof day_list);
@@ -40,7 +45,9 @@ const Main = props => {
               {Array.from({ length: 5 }, (item, index) => {
                 return <AiFillStar key={index} style={{color:"gray", fontSize:"34px"}}/>;
               })}
-              <AiFillCaretRight style={{fontSize:"28px"}}/>
+              <AiFillCaretRight style={{fontSize:"28px"}} onClick={()=>{
+                history.push('/review/'+ day_list[index])
+              }}/>
             </div>
 
           );
