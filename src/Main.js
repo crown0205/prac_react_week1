@@ -12,13 +12,13 @@ const Main = props => {
   };
 
   // 궁금증 테스트 console.log 값
-  console.log(typeof day_list);
-  console.log("day_list : ", day_list);
-  console.log("Objest.key : ", Object.keys(day_list));
-  console.log(
-    "Object.kety.map : ",
-    Object.keys(day_list).map((item, index) => day_list[item])
-  );
+  // console.log(typeof day_list);
+  // console.log("day_list : ", day_list);
+  // console.log("Objest.key : ", Object.keys(day_list));
+  // console.log(
+  //   "Object.kety.map : ",
+  //   Object.keys(day_list).map((item, index) => day_list[item])
+  // );
 
   return (
     // <ListStyle>
