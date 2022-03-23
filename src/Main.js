@@ -50,8 +50,8 @@ const Main = props => {
             <p style={{}}>{day.day}요일</p>
 
             {Array.from({ length: 5 }, (item, star_index) => {
-              console.log("별 : ", star_index);
-              console.log("랜덤숫자 : ", day.num);
+              // console.log("별 : ", star_index);
+              // console.log("랜덤숫자 : ", day.num);
               return (
                 <AiFillStar
                   key={star_index}

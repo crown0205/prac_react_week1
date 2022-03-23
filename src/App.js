@@ -23,8 +23,7 @@ const WrapStyle = styled.div`
   background-color: white;
   max-width: 350px;
   min-height: 300px;
-  max-height: 640px;
-  margin: 14px auto 0;
+  margin: 80px auto 0;
   padding: 10px 20px;
   border-radius: 10px;
   overflow-y: auto;
