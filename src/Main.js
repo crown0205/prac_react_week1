@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillCaretRight, AiFillStar } from "react-icons/ai";
+import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 // import styled from "styled-components";
 
@@ -19,17 +20,12 @@ const Main = props => {
   const random_num = day_list.map((요일, idx) => {
     return {
       day: 요일,
-      num: Math.floor(Math.random() * 5) + 1, 
+      num: Math.floor(Math.random() * 5) + 1,
     };
   });
 
   return (
-    // <ListStyle>
-    <div
-      style={{
-        margin: "20px auto",
-        //  background:"#aaa"
-      }}>
+    <div>
       <h1>내 일주일은?</h1>
       <hr />
       {random_num.map((day, index) => {
@@ -37,36 +33,32 @@ const Main = props => {
         // console.log("day : ", day);
         // console.log("num : ", day.num);
         // console.log("index : ", index);
-        
+
         return (
-          <div
+          <ItemStyle
             key={`days_${index}`} // 순번을 key값으로 넣어줌.
-            style={{
-              width: "80%",
-              margin: "auto",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
+            style={
+              {
+                // width: "100%",
+                // margin: "auto",
+                // display: "flex",
+                // justifyContent: "space-between",
+                // alignItems: "center",
+              }
+            }
           >
-            <p
-              style={{
-                fontSize: "20px",
-                fontWeight: "bold",
-                letterSpacing: "2px",
-              }}
-            >
-              {day.day}요일
-            </p>
+            <p style={{}}>{day.day}요일</p>
 
             {Array.from({ length: 5 }, (item, star_index) => {
-              console.log("별 : ",star_index)
-              console.log("랜덤숫자 : ",day.num)
+              console.log("별 : ", star_index);
+              console.log("랜덤숫자 : ", day.num);
               return (
                 <AiFillStar
                   key={star_index}
-                  style={{ fontSize: "34px", 
-                  color: day.num < star_index ? "#aaa" :  "#f2b600"}}
+                  style={{
+                    fontSize: "34px",
+                    color: day.num < star_index ? "#aaa" : "#f2b600",
+                  }}
                 />
               );
             })}
@@ -77,23 +69,33 @@ const Main = props => {
                 history.push("/review/" + day.day);
               }}
             />
-          </div>
+          </ItemStyle>
         );
       })}
     </div>
-    // </ListStyle>
   );
 };
 
 // 랜덤 기능 구현...
 // 평점 남기기 구현
 
-export default Main;
+const ItemStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 14px;
+  margin: 8px auto;
+  width: 90%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px #eee;
 
-// const ListStyle = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: gray;
-// `
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+`;
+
+export default Main;
