@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillCaretRight, AiFillStar } from "react-icons/ai";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-// import styled from "styled-components";
+
 
 const Main = props => {
   const day_list = ["일", "월", "화", "수", "목", "금", "토"];
@@ -28,7 +28,7 @@ const Main = props => {
     <div>
       <h1>내 일주일은?</h1>
       <hr />
-      {random_num.map((day, index) => {
+      {random_num.map(({day, num}, index) => {
         //  day_list에서 요일의 값(day)을 가져와 length 만큼 가져와 나열해준다.
         // console.log("day : ", day);
         // console.log("num : ", day.num);
@@ -37,28 +37,17 @@ const Main = props => {
         return (
           <ItemStyle
             key={`days_${index}`} // 순번을 key값으로 넣어줌.
-            style={
-              {
-                // width: "100%",
-                // margin: "auto",
-                // display: "flex",
-                // justifyContent: "space-between",
-                // alignItems: "center",
-              }
-            }
           >
-            <p style={{}}>{day.day}요일</p>
-
+            <p>{day}요일</p>
             {Array.from({ length: 5 }, (item, star_index) => {
-              // console.log("별 : ", star_index);
-              // console.log("랜덤숫자 : ", day.num);
+            
               return (
                 <AiFillStar
                   key={star_index}
                   style={{
                     fontSize: "34px",
-                    color: day.num < star_index ? "#aaa" : "#f2b600",
-                  }}
+                    color: num < star_index ? "#aaa" : "#f2b600",
+                  }}        
                 />
               );
             })}
@@ -66,7 +55,7 @@ const Main = props => {
             <AiFillCaretRight
               style={{ fontSize: "28px" }}
               onClick={() => {
-                history.push("/review/" + day.day);
+                history.push("/review/" + day);
               }}
             />
           </ItemStyle>
@@ -75,9 +64,6 @@ const Main = props => {
     </div>
   );
 };
-
-// 랜덤 기능 구현...
-// 평점 남기기 구현
 
 const ItemStyle = styled.div`
   display: flex;
