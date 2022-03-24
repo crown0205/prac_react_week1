@@ -12,9 +12,23 @@ const Review = props => {
   // console.log(history)
   // console.log(url_value.day)
 
+  React.useEffect(() => {
+    const press = event => {
+      console.log("키보드를 누르면 어떤 이벤트가 발생 : ", event);
+      // if ([1, 2, 3, 4, 5].indexOf(parseInt(event.key)) !== -1) {
+      //   setStar_num(parseInt(event.key));
+      // }
+    };
+    window.addEventListener("keydown", press);
+
+    return () => window.removeEventListener("keydown", press);
+  }, []);
+
   return (
     <div>
-      <h2><span>{url_value.day}요일</span></h2>
+      <h2>
+        <span>{url_value.day}요일</span> 평점남기기
+      </h2>
       <hr />
       <ItemStyle>
         {Array.from({ length: 5 }, (item, index) => {
