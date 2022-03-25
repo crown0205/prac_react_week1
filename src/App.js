@@ -1,19 +1,19 @@
 import "./App.css";
 import { Route } from "react-router-dom";
 import styled from "styled-components";
-import Main from "./Main"
+import Main from "./Main";
 import Review from "./Review";
 
 function App() {
   return (
     <div className="App">
       <WrapStyle>
-      <Route path="/" exact>
-        <Main />
-      </Route>
-      <Route path="/review/:day" exact >
-        <Review />
-      </Route>
+        <Route path="/" exact>
+          <Main />
+        </Route>
+        <Route path="/review/:day" exact>
+          <Review />
+        </Route>
       </WrapStyle>
     </div>
   );
@@ -41,9 +41,9 @@ const WrapStyle = styled.div`
   span {
     background: #7bcbff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 6px 6px;
     border-radius: 10px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
   }
-`
+`;
 export default App;

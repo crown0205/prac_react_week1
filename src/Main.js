@@ -8,15 +8,6 @@ const Main = props => {
   const day_list = ["일", "월", "화", "수", "목", "금", "토"];
   const history = useHistory();
 
-  // 궁금증 테스트 console.log 값
-  // console.log(typeof day_list);
-  // console.log("day_list : ", day_list);
-  // console.log("Objest.key : ", Object.keys(day_list));
-  // console.log(
-  //   "Object.kety.map : ",
-  //   Object.keys(day_list).map((item, index) => day_list[item])
-  // );
-
   const random_num = day_list.map((요일, idx) => {
     return {
       day: 요일,
@@ -29,29 +20,20 @@ const Main = props => {
       <h1>내 일주일은?</h1>
       <hr />
       {random_num.map(({day, num}, index) => {
-        //  day_list에서 요일의 값(day)을 가져와 length 만큼 가져와 나열해준다.
-        // console.log("day : ", day);
-        // console.log("num : ", day.num);
-        // console.log("index : ", index);
 
         return (
-          <ItemStyle
-            key={`days_${index}`} // 순번을 key값으로 넣어줌.
-          >
+          <ItemStyle key={`days_${index}`}>
             <p>{day}요일</p>
             {Array.from({ length: 5 }, (item, star_index) => {
-            
               return (
                 <AiFillStar
                   key={star_index}
                   style={{
                     fontSize: "34px",
                     color: num < star_index ? "#aaa" : "#f2b600",
-                  }}        
-                />
+                  }}/>
               );
             })}
-
             <AiFillCaretRight
               style={{ fontSize: "28px" }}
               onClick={() => {
